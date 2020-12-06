@@ -38,7 +38,6 @@ def Home_Page():
         f"/api/v1.0/start_date/end_date<br/>"
     )
 
-############################################################
 """Convert the query results to a dictionary using `date` as the key and `prcp`""" 
 
 @app.route("/api/v1.0/precipitation")
@@ -56,7 +55,7 @@ def precipitation():
 
     # Perform a query to retrieve the date and precipitation for last year's data
     precipitation = session.query(measurement.date, measurement.prcp).\
-                    filter(measurement.date >= las12).all()
+                    filter(measurement.date >= last12).all()
     
     # Convert the query results to a dictionary using `date` as the key and `prcp` as the value
     prcpData = []
@@ -71,7 +70,6 @@ def precipitation():
     # Return the JSON representation of your dictionary
     return jsonify(prcpData)
 
-############################################################
 
 """Return a JSON list of stations from the dataset."""
 
